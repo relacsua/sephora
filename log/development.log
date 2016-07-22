@@ -1,0 +1,867 @@
+
+
+Started GET "/" for ::1 at 2016-07-21 16:40:21 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 15ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCategories (20160721084234)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160721084234"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSubCategories (20160721084309)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "sub_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_sub_categories_on_category_id" ON "sub_categories" ("category_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160721084309"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSubSubCategories (20160721084422)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "sub_sub_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "subcategory_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_sub_sub_categories_on_subcategory_id" ON "sub_sub_categories" ("subcategory_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160721084422"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+
+
+
+Started GET "/" for ::1 at 2016-07-22 01:36:07 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/railties-4.2.4/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 20ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:38:13 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 875ms (Views: 861.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:38:14 +0800
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Makeup"], ["created_at", "2016-07-21 17:38:44.414141"], ["updated_at", "2016-07-21 17:38:44.414141"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:38:47 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:38:47 +0800
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "sub_categories" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Face"], ["category_id", 1], ["created_at", "2016-07-21 17:40:07.121457"], ["updated_at", "2016-07-21 17:40:07.121457"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:41:58 +0800
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `sub_category' for #<Category:0x007f9a1fc84658>):
+    3: 	<% @categories.each do |category| %>
+    4: 		<li><%= category.name %></li>
+    5: 		<ul>
+    6: 			<% category.sub_category.each do |sub_category| %>
+    7: 				<li> sub_category </li>
+    8: 			<% end %>
+    9: 		</ul>
+  app/views/categories/index.html.erb:6:in `block in _app_views_categories_index_html_erb__4113306529942106268_70149967197520'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb__4113306529942106268_70149967197520'
+
+
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.8ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.1ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (57.3ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (118.5ms)
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:43:12 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.2ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:43:12 +0800
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:43:36 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:43:36 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:43:37 +0800
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:43:45 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:43:45 +0800
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35mSubCategory Load (0.2ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sub_categories" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Cheek"], ["category_id", 1], ["created_at", "2016-07-21 17:46:21.313199"], ["updated_at", "2016-07-21 17:46:21.313199"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/categories" for ::1 at 2016-07-22 01:46:28 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 01:46:28 +0800
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "sub_sub_categories" ("name", "subcategory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Face Lotion"], ["subcategory_id", 1], ["created_at", "2016-07-21 17:48:01.921294"], ["updated_at", "2016-07-21 17:48:01.921294"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "sub_sub_categories" ("name", "subcategory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Concealer"], ["subcategory_id", 1], ["created_at", "2016-07-21 17:48:46.617038"], ["updated_at", "2016-07-21 17:48:46.617038"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mSubSubCategory Load (0.5ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[36mSubSubCategory Load (0.7ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[35mSubSubCategory Load (0.9ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[36mSubSubCategory Load (0.8ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[35mSubSubCategory Load (0.9ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[36mSubSubCategory Load (0.8ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[35mSubSubCategory Load (0.2ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories"
+  [1m[36mSubCategory Load (0.1ms)[0m  [1mSELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT  "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSubSubCategory Load (0.7ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: sub_sub_categories.sub_category_id: SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnNameInSubSubCategory (20160721175629)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "asub_sub_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "sub_category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "tindex_asub_sub_categories_on_subcategory_id" ON "asub_sub_categories" ("sub_category_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "sub_sub_categories"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "asub_sub_categories" ("id","name","sub_category_id","created_at","updated_at") VALUES (1, 'Face Lotion', 1, '2016-07-21 17:48:01.921294', '2016-07-21 17:48:01.921294')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "asub_sub_categories" ("id","name","sub_category_id","created_at","updated_at") VALUES (2, 'Concealer', 1, '2016-07-21 17:48:46.617038', '2016-07-21 17:48:46.617038')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "sub_sub_categories"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "sub_sub_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "sub_category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_asub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_asub_sub_categories_on_subcategory_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_sub_sub_categories_on_subcategory_id" ON "sub_sub_categories" ("sub_category_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "asub_sub_categories"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "sub_sub_categories" ("id","name","sub_category_id","created_at","updated_at") VALUES (1, 'Face Lotion', 1, '2016-07-21 17:48:01.921294', '2016-07-21 17:48:01.921294')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "sub_sub_categories" ("id","name","sub_category_id","created_at","updated_at") VALUES (2, 'Concealer', 1, '2016-07-21 17:48:46.617038', '2016-07-21 17:48:46.617038')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "asub_sub_categories"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_sub_sub_categories_on_sub_category_id" ON "sub_sub_categories" ("sub_category_id")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_subcategory_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  DROP INDEX "index_sub_sub_categories_on_subcategory_id"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160721175629"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+[0m
+  [1m[35mSubSubCategory Load (0.4ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [[nil, 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [[nil, 1]]
+  [1m[35mSubSubCategory Load (0.2ms)[0m  SELECT  "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."id" = ? LIMIT 1  [["id", 1]]
+
+
+Started GET "/categories" for ::1 at 2016-07-22 02:04:49 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mSubSubCategory Load (0.2ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 244ms (Views: 227.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 02:04:50 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20160721181750)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160721181750"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddSubSubCategoryColumnToProduct (20160721182023)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "products" ADD "sub_sub_category_id" integer[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_products_on_sub_sub_category_id" ON "products" ("sub_sub_category_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160721182023"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_sub_sub_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_sub_sub_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_categories_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_sub_sub_categories_on_sub_category_id' AND type='index'
+[0m
+  [1m[36mSubSubCategory Load (0.4ms)[0m  [1mSELECT  "sub_sub_categories".* FROM "sub_sub_categories"  ORDER BY "sub_sub_categories"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "sub_sub_categories" SET "name" = ?, "updated_at" = ? WHERE "sub_sub_categories"."id" = ?[0m  [["name", "Foundation"], ["updated_at", "2016-07-21 18:23:43.761358"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/categories" for ::1 at 2016-07-22 02:23:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mSubSubCategory Load (0.2ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 245ms (Views: 231.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 02:23:58 +0800
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "price", "sub_sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "too faced"], ["description", "born this way foundation"], ["price", 39.0], ["sub_sub_category_id", 1], ["created_at", "2016-07-21 18:28:41.104824"], ["updated_at", "2016-07-21 18:28:41.104824"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("name", "description", "price", "sub_sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "bareminerals"], ["description", "bareMinerals Original Foundation Broad Spectrum"], ["price", 28.5], ["sub_sub_category_id", 1], ["created_at", "2016-07-21 18:29:56.872494"], ["updated_at", "2016-07-21 18:29:56.872494"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+
+
+Started GET "/categories" for ::1 at 2016-07-22 02:34:01 +0800
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (27.6ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.5ms)
+
+ActionView::Template::Error (undefined method `products' for #<SubCategory:0x007ffd6acad4f0>):
+     9: 					<% sub_category.sub_sub_categories.each do |sub_sub_category| %>
+    10: 						<li><%= sub_sub_category.name %></li>
+    11: 						<ul>
+    12: 							<% sub_category.products.each do |product| %>
+    13: 								<li>
+    14: 									<p><%= sub_sub_category.name %></p>
+    15: 									<p><%= sub_sub_category.description %></p>
+  app/views/categories/index.html.erb:12:in `block (3 levels) in _app_views_categories_index_html_erb___3598410182787160474_70363223363280'
+  app/views/categories/index.html.erb:9:in `block (2 levels) in _app_views_categories_index_html_erb___3598410182787160474_70363223363280'
+  app/views/categories/index.html.erb:6:in `block in _app_views_categories_index_html_erb___3598410182787160474_70363223363280'
+  app/views/categories/index.html.erb:3:in `_app_views_categories_index_html_erb___3598410182787160474_70363223363280'
+
+
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.5ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.6ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (55.0ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.6ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/muneer/.rvm/gems/ruby-2.2.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (117.4ms)
+
+
+Started GET "/categories" for ::1 at 2016-07-22 02:34:41 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 40ms (Views: 37.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 02:34:41 +0800
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products"  ORDER BY "products"."id" ASC LIMIT 1[0m
+  [1m[35mSubSubCategory Load (0.2ms)[0m  SELECT  "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSubCategory Load (0.1ms)[0m  [1mSELECT  "sub_categories".* FROM "sub_categories"  ORDER BY "sub_categories"."id" ASC LIMIT 1[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT  "sub_categories".* FROM "sub_categories"  ORDER BY "sub_categories"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products" INNER JOIN "sub_sub_categories" ON "products"."sub_sub_category_id" = "sub_sub_categories"."id" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" INNER JOIN "sub_sub_categories" ON "products"."sub_sub_category_id" = "sub_sub_categories"."id" INNER JOIN "sub_categories" ON "sub_sub_categories"."sub_category_id" = "sub_categories"."id" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mSubSubCategory Load (0.2ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("name", "description", "price", "sub_sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Muneer's Concealer"], ["description", "The World's Best Concealer"], ["price", 100.5], ["sub_sub_category_id", 2], ["created_at", "2016-07-21 19:14:52.409067"], ["updated_at", "2016-07-21 19:14:52.409067"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/categories" for ::1 at 2016-07-22 03:15:00 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.3ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 65ms (Views: 58.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 03:15:01 +0800
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Fagrance"], ["created_at", "2016-07-21 19:25:04.104667"], ["updated_at", "2016-07-21 19:25:04.104667"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/categories" for ::1 at 2016-07-22 03:26:51 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.0ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  [1m[36mSubCategory Load (0.0ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 03:26:51 +0800
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sub_categories" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Women"], ["category_id", 2], ["created_at", "2016-07-21 19:28:05.314031"], ["updated_at", "2016-07-21 19:28:05.314031"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "sub_sub_categories" ("name", "sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Perfume"], ["sub_category_id", 3], ["created_at", "2016-07-21 19:28:57.377559"], ["updated_at", "2016-07-21 19:28:57.377559"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "price", "sub_sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "chloe"], ["description", "chloe eau de parfum"], ["price", 28.0], ["sub_sub_category_id", 3], ["created_at", "2016-07-21 19:31:24.834975"], ["updated_at", "2016-07-21 19:31:24.834975"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/categories" for ::1 at 2016-07-22 03:31:31 +0800
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 2]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 2]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 2]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 3]]
+  Rendered categories/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 03:31:32 +0800
+  [1m[35mSubCategory Load (0.2ms)[0m  SELECT "sub_categories".* FROM "sub_categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sub_sub_categories" ("name", "sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Blush"], ["sub_category_id", 2], ["created_at", "2016-07-21 19:32:56.081178"], ["updated_at", "2016-07-21 19:32:56.081178"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "price", "sub_sub_category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "urban decay"], ["description", "naked flushed"], ["price", 32.0], ["sub_sub_category_id", 4], ["created_at", "2016-07-21 19:34:07.113374"], ["updated_at", "2016-07-21 19:34:07.113374"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/categories" for ::1 at 2016-07-22 03:34:14 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 4]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 2]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 3]]
+  Rendered categories/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 03:34:14 +0800
+
+
+Started GET "/categories" for ::1 at 2016-07-22 03:34:17 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 4]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 2]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 3]]
+  Rendered categories/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 03:34:17 +0800
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" INNER JOIN "sub_sub_categories" ON "products"."sub_sub_category_id" = "sub_sub_categories"."id" INNER JOIN "sub_categories" ON "sub_sub_categories"."sub_category_id" = "sub_categories"."id" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" INNER JOIN "sub_sub_categories" ON "products"."sub_sub_category_id" = "sub_sub_categories"."id" INNER JOIN "sub_categories" ON "sub_sub_categories"."sub_category_id" = "sub_categories"."id" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" INNER JOIN "sub_sub_categories" ON "products"."sub_sub_category_id" = "sub_sub_categories"."id" INNER JOIN "sub_categories" ON "sub_sub_categories"."sub_category_id" = "sub_categories"."id" WHERE "sub_categories"."category_id" = ?[0m  [["category_id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "sub_categories" ON "sub_categories"."category_id" = "categories"."id"
+  [1m[36mSubCategory Load (0.2ms)[0m  [1mSELECT "sub_categories".* FROM "sub_categories" INNER JOIN "categories" ON "categories"."id" = "sub_categories"."category_id"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "sub_categories" ON "sub_categories"."category_id" = "categories"."id"
+
+
+Started GET "/categories" for ::1 at 2016-07-22 04:03:34 +0800
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 1]]
+  [1m[36mSubSubCategory Load (0.2ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 2]]
+  [1m[35mSubSubCategory Load (0.1ms)[0m  SELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?  [["sub_category_id", 2]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?[0m  [["sub_sub_category_id", 4]]
+  [1m[35mSubCategory Load (0.1ms)[0m  SELECT "sub_categories".* FROM "sub_categories" WHERE "sub_categories"."category_id" = ?  [["category_id", 2]]
+  [1m[36mSubSubCategory Load (0.1ms)[0m  [1mSELECT "sub_sub_categories".* FROM "sub_sub_categories" WHERE "sub_sub_categories"."sub_category_id" = ?[0m  [["sub_category_id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."sub_sub_category_id" = ?  [["sub_sub_category_id", 3]]
+  Rendered categories/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/categories.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/categories.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-07-22 04:03:35 +0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-07-22 04:03:35 +0800
