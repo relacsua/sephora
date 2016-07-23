@@ -1,0 +1,11 @@
+<%= form_for([@category, @sub_category, @sub_sub_category]) do |f| %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', category_sub_category_path(@category, @sub_category) %>

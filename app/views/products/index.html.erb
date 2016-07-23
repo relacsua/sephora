@@ -1,0 +1,23 @@
+<h1>Products of <%= @sub_sub_category.name %></h1>
+<% sub_category =  @sub_sub_category.sub_category %>
+<% category =  sub_category.category %>
+
+<%= link_to 'Add product', new_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category) %>
+
+<table>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.id %></td>
+			<td><%= product.name %></td>
+			<td><%= product.description %></td>
+			<td>$<%= product.price %></td>
+			<td><%= link_to 'Show',category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product) %></td>
+			<td><%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product) %></td>
+			<td><%= link_to 'Delete', category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product),
+				method: :delete,
+				data: { confirm: 'Are you sure you want to delete?' } %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Back', category_sub_category_path(sub_category.category, sub_category) %>

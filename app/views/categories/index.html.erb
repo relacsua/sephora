@@ -1,25 +1,14 @@
 <h1>Category</h1>
-<ul>
+<%= link_to 'Add category', new_category_path %>
+<table>
 	<% @categories.each do |category| %>
-		<li><%= category.name %></li>
-		<ul>
-			<% category.sub_categories.each do |sub_category| %>
-				<li><%= sub_category.name %></li>
-				<ul>
-					<% sub_category.sub_sub_categories.each do |sub_sub_category| %>
-						<li><%= sub_sub_category.name %></li>
-						<ul>
-							<% sub_sub_category.products.each do |product| %>
-								<li>
-									<p><%= product.name %></p>
-									<p><%= product.description %></p>
-									<p><%= product.price %></p>
-								</li>
-							<% end %>
-						</ul> 
-					<% end %>
-				</ul> 
-			<% end %>
-		</ul>
+		<tr>
+			<td><%= category.name %></td>
+			<td><%= link_to 'Show', category_path(category) %></td>
+			<td><%= link_to 'Edit', edit_category_path(category) %></td>
+			<td><%= link_to 'Delete', category_path(category),
+			method: :delete,
+			data: { confirm: 'Are you sure you want to delete?' } %></td>
+		</tr>
 	<% end %>
-</ul>
+</table>

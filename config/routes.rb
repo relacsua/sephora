@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :categories
+  resources :categories do
+    resources :sub_categories, path: '/subcategories' do
+      resources :sub_sub_categories, path: '/subsubcategories' do
+        resources :products
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,9 @@
+<h1>Sub Sub Category</h1>
+
+<p><%= @sub_sub_category.name %></p>
+<p><%= @sub_sub_category.id %></p>
+<p><%= @sub_sub_category.sub_category_id %></p>
+<p><%= @sub_sub_category.created_at %></p>
+<p><%= @sub_sub_category.updated_at %></p>
+
+<%= link_to 'Back', category_sub_category_path(@sub_sub_category.sub_category.category, @sub_sub_category.sub_category.category) %>
