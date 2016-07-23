@@ -8,6 +8,7 @@
 	<% @products.each do |product| %>
 		<tr>
 			<td><%= product.id %></td>
+			<td><%= image_tag product.photo.url, height: '135', width: '135' %></td>
 			<td><%= product.name %></td>
 			<td><%= product.description %></td>
 			<td>$<%= product.price %></td>

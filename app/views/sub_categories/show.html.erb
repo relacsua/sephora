@@ -19,9 +19,7 @@
 			<td><%= link_to 'Delete', category_sub_category_sub_sub_category_path(@category, @sub_category, sub_sub_category),
 				method: :delete,
 				data: {confirm: 'Are you sure you want to delete?'} %></td>
-			<% if sub_sub_category.products.count > 0%>
-				<td><%= link_to 'Products', category_sub_category_sub_sub_category_products_path(@category, @sub_category, sub_sub_category) %></td>
-			<% end %>
+			<td><%= link_to 'Products', category_sub_category_sub_sub_category_products_path(@category, @sub_category, sub_sub_category) %></td>
 		</tr>
 	<% end %>
 </table>
