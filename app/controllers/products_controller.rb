@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		@product = Product.find(:id)
+		@sub_sub_category = SubSubCategory.find(params[:sub_sub_category_id])
+		@sub_category = @sub_sub_category.sub_category
+		@category = @sub_category.category
+		@product = Product.find(params[:id])
 	end
 
 	def new

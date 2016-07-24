@@ -1,0 +1,9 @@
+<h1>Product</h1>
+
+<p><%= @product.id %></p>
+<%= image_tag @product.photo.url, height: '135', width: '135' %>
+<p><%= @product.name %></p>
+<p><%= @product.description %></p>
+<p>$<%= @product.price %></p>
+
+<%= link_to 'Back', category_sub_category_sub_sub_category_products_path(@category, @sub_category, @sub_sub_category)  %> | <%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(@category, @sub_category, @sub_sub_category, @product) %>

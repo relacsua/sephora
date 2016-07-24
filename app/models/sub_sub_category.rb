@@ -1,4 +1,10 @@
 class SubSubCategory < ActiveRecord::Base
-  belongs_to :sub_category
-  has_many :products
+	# Associations
+	belongs_to :sub_category
+	has_many :products, dependent: :destroy
+
+	# Validations
+	validates :name, presence: true
+	validates :name, length: { in: 6..25 }
+	validates :name, uniqueness: true
 end
