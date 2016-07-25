@@ -12,26 +12,26 @@
 			</ul>
 		</div>
 	<% end %>
-	<p>
+	<div class="form-group">
 		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
+		<%= f.text_field :name, class: "form-control" %>
+	</div>
+	<div class="form-group">
 		<%= f.label :description %>
-		<%= f.text_area :description %>
-	</p>
-	<p>
+		<%= f.text_area :description, class: "form-control" %>
+	</div>
+	<div class="form-group">
 		<%= f.label :price %>
-		<%= f.number_field :price, step: 0.01 %>
-	</p>
+		<%= f.number_field :price, step: 0.01, class: "form-control" %>
+	</div>
 
-	<p>
+	<div class="form-group">
 		<%= f.file_field :photo %>
-	</p>
+	</div>
 
-	<p>
+	<div class="form-group">
 		<%= f.submit %>
-	</p>
+	</div>
 <% end %>
 
-<%= link_to 'Back', category_sub_category_sub_sub_category_products_path(@category, @sub_category, @sub_sub_category) %>
+<%= link_to 'Back', category_sub_category_sub_sub_category_products_path(@category, @sub_category, @sub_sub_category), class: "btn btn-default" %>

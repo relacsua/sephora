@@ -1,24 +1,36 @@
-<h1>Products of <%= @sub_sub_category.name %></h1>
 <% sub_category =  @sub_sub_category.sub_category %>
 <% category =  sub_category.category %>
 
-<%= link_to 'Add product', new_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category) %>
+<%= render 'layouts/header' %>
 
-<table>
-	<% @products.each do |product| %>
+<div class="container">
+	<h1>Product page of <%= @sub_sub_category.name %></h1>
+	<%= link_to 'Add product', new_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category), class: "btn btn-primary btn-add" %>
+
+	<table class="table table-bordered">
 		<tr>
-			<td><%= product.id %></td>
-			<td><%= image_tag product.photo.url, height: '135', width: '135' %></td>
-			<td><%= product.name %></td>
-			<td><%= product.description %></td>
-			<td>$<%= product.price %></td>
-			<td><%= link_to 'Show',category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product) %></td>
-			<td><%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product) %></td>
-			<td><%= link_to 'Delete', category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product),
-				method: :delete,
-				data: { confirm: 'Are you sure you want to delete?' } %></td>
+			<th>#</th>
+			<th>Photo</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Actions</th>
 		</tr>
-	<% end %>
-</table>
-
-<%= link_to 'Back', category_sub_category_path(sub_category.category, sub_category) %>
+		<% @products.each do |product| %>
+			<tr>
+				<td><%= product.id %></td>
+				<td><%= image_tag product.photo.url, height: '135', width: '135' %></td>
+				<td><%= product.name %></td>
+				<td><%= product.description %></td>
+				<td><%= number_to_currency product.price %></td>
+				<td>
+					<%= link_to 'Show',category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product), class: "btn btn-success" %>
+					<%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product), class: "btn btn-info" %>
+					<%= link_to 'Delete', category_sub_category_sub_sub_category_product_path(category, sub_category, @sub_sub_category, product), class: "btn btn-danger",method: :delete,
+						data: { confirm: 'Are you sure you want to delete?' } %></td>
+			</tr>
+		<% end %>
+	</table>
+	
+	<%= link_to 'Back', category_sub_category_path(sub_category.category, sub_category), class: "btn btn-default" %>
+</div>

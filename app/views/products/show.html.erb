@@ -1,9 +1,35 @@
-<h1>Product</h1>
+<%= render 'layouts/header' %>
 
-<p><%= @product.id %></p>
-<%= image_tag @product.photo.url, height: '135', width: '135' %>
-<p><%= @product.name %></p>
-<p><%= @product.description %></p>
-<p>$<%= @product.price %></p>
+<div class="container">
+	<h1>Product Page</h1>
+	
+	<table class="table table-bordered">
+		<tr>
+			<th>#</th>
+			<td><%= @product.id %></td>
+		</tr>
+		<tr>
+			<th>Photo</th>
+			<td><%= image_tag @product.photo.url, height: '135', width: '135' %></td>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<td><%= @product.name %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= @product.description %></td>
+		</tr>
+		<tr>
+			<th>Created At</th>
+			<td><%= @product.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated at</th>
+			<td><%= @product.updated_at %></td>
+		</tr>
+	</table>
 
-<%= link_to 'Back', category_sub_category_sub_sub_category_products_path(@category, @sub_category, @sub_sub_category)  %> | <%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(@category, @sub_category, @sub_sub_category, @product) %>
+	<%= link_to 'Back', category_sub_category_sub_sub_category_products_path(@category, @sub_category, @sub_sub_category), class: "btn btn-default" %>
+	<%= link_to 'Edit', edit_category_sub_category_sub_sub_category_product_path(@category, @sub_category, @sub_sub_category, @product), class: "btn btn-info" %>
+</div>
