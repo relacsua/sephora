@@ -1,24 +1,50 @@
-<p><%= @category.id %></p>
-<p><%= @category.name %></p>
-<p><%= @category.created_at %></p>
-<p><%= @category.updated_at %></p>
+<%= render 'layouts/header' %>
 
-<h3>Sub Category</h3>
-
-<%= link_to "Add Sub Category for #{@category.name}", new_category_sub_category_path(@category) %>
-
-<table>
-	<% @category.sub_categories.each do |sub_category| %>
+<div class="container">
+	<h1>Category Page</h1>
+	<table class="table table-bordered">
 		<tr>
-			<td><%= sub_category.name %></td>
-			<td><%= link_to 'Show', category_sub_category_path(@category, sub_category) %></td>
-			<td><%= link_to 'Edit', edit_category_sub_category_path(@category, sub_category)%></td>
-			<td><%= link_to 'Delete', category_sub_category_path(@category, sub_category), 
-				method: :delete, 
-				data: { confirm: 'Are you sure you want to delete?' }%></td>
+			<th>#</th>
+			<td><%= @category.id %></td>
 		</tr>
-	<% end %>
-</table>
+		<tr>
+			<th>Name</th>
+			<td><%= @category.name %></td>
+		</tr>
+		<tr>
+			<th>Created At</th>
+			<td><%= @category.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated at</th>
+			<td><%= @category.updated_at %></td>
+		</tr>
+	</table>
+	
+	<h3>Sub Categories</h3>
 
-<%= link_to 'Back', categories_path %> | 
-<%= link_to 'Edit', edit_category_path(@category) %>
+	<%= link_to "Add Sub Category", new_category_sub_category_path(@category), class: "btn btn-primary btn-add" %>
+
+	<table class="table table-bordered">
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+		<% @category.sub_categories.each do |sub_category| %>
+			<tr>
+				<td><%= sub_category.id %></td>
+				<td><%= sub_category.name %></td>
+				<td>
+					<%= link_to 'Show', category_sub_category_path(@category, sub_category),class: "btn btn-success"%>
+					<%= link_to 'Edit', edit_category_sub_category_path(@category, sub_category), class: "btn btn-info" %>
+					<%= link_to 'Delete', category_sub_category_path(@category, sub_category), class: "btn btn-danger",
+						method: :delete, 
+						data: { confirm: 'Are you sure you want to delete?' }%></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<%= link_to 'Back', categories_path, class: "btn btn-default" %>
+	<%= link_to 'Edit', edit_category_path(@category), class: "btn btn-info" %>
+</div>
