@@ -32,13 +32,15 @@ class MainController < ApplicationController
 		categories = Category.all
 
 		categories.each do |category|
-			sub_cats = []
-			category.sub_categories.each do |sub_category|
-				sub_cat = Hash.new
-				sub_cat[sub_category.name] = sub_category.sub_sub_categories.pluck(:name)
-				sub_cats.push(sub_cat)
+			if category.products.length > 0
+				sub_cats = []
+				category.sub_categories.each do |sub_category|
+					sub_cat = Hash.new
+					sub_cat[sub_category.name] = sub_category.sub_sub_categories.pluck(:name)
+					sub_cats.push(sub_cat)
+				end
+				nest[category.name] = sub_cats
 			end
-			nest[category.name] = sub_cats
 		end
 
 		nest
