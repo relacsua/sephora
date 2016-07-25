@@ -110,3 +110,100 @@ body {
 .main {
 	padding-top: 70px;
 }
+
+// Header
+
+.header {
+	margin: 50px 0;
+	
+	h1 {
+		font-size: 50px;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-weight: 100;
+	    font-size: 22px;
+	    text-shadow: 1px 1px 2px #bbb;
+	}
+}
+
+// Content
+
+.results {
+	font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.hierarchy-links {
+
+	font-family: 'Oswald', sans-serif;
+	line-height: 18px;
+	display: block;
+	margin-top: 10px;
+	color: $orange;
+
+	.hierarchy-link {
+		color: $redorange;
+		text-transform: uppercase;
+		font-size: 12px;
+
+		&:hover {
+			text-decoration: none;
+			color: $orange;
+		}
+	}
+}
+
+// Product
+
+.product-card {
+	width: 300px;
+	margin: auto;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding: 10px 20px;
+	height: 331px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 2px 2px #ccc;
+	 -webkit-transition: margin 0.15s ease;
+	-moz-transition: margin 0.15s ease;
+	-o-transition: margin 0.15s ease;
+	transition: margin 0.15s ease;
+
+	&:hover {
+		margin-top: 5px;
+	}
+}
+
+.product-details {
+	padding: 0 10px;
+
+	.name {
+		display: block;
+	    font-family: 'Oswald';
+	    line-height: 60px;
+	    font-weight: 300;
+	    text-align: left;
+	    font-size: 16px;
+	    border-bottom: 1px solid #eee;
+	}
+
+	.desc {
+		display: block;
+		line-height: 60px;
+		font-weight: 300;
+		text-transform: uppercase;
+		float: left;
+		font-size: 12px;
+	}
+
+	.price {
+		display: block;
+		line-height: 60px;
+		text-align: right;
+	}
+}

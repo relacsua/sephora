@@ -51,31 +51,50 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="main container">
-	<p>
-		<% if params[:cat] %>
-			<%= link_to @category_name, "/#{params[:cat]}" %>
-		<% end %>
-		<% if params[:cat] && params[:subcat] %>
-			<span>&nbsp;>&nbsp;</span>
-			<%= link_to @sub_category_name, "/#{params[:cat]}/#{params[:subcat]}" %>
-		<% end %>
-		<% if params[:cat] && params[:subcat] && params[:subsubcat] %>
-			<span>&nbsp;>&nbsp;</span>
-			<%= link_to @sub_sub_category_name, "/#{params[:cat]}/#{params[:subcat]}/#{params[:subsubcat]}" %>
-		<% end %>
-	</p>
-	<% if @products %>
-		<p><%= pluralize(@products.count, "result") %> found</p>
-		<table>
-			<% @products.each do |product| %>
-				<tr>
-					<td><%= product.id %></td>
-					<td><%= image_tag product.photo.url, height: '135', width: '135' %></td>
-					<td><%= product.name %></td>
-					<td><%= product.description %></td>
-					<td>$<%= product.price %></td>
-				</tr>
+	<div class="header text-center">
+		<h1>Sephora Lite</h1>
+		<p>Discover the latest in beauty</p>
+	</div>
+
+	<div class="content row">
+		<% if @products %>
+
+			<% if params[:cat] %>
+				<span class="results"><%= pluralize(@products.count, "product") %> found</span>
+				<span class="hierarchy-links">
+					<% if params[:cat] %>
+						<%= link_to @category_name, "/#{params[:cat]}", class:"hierarchy-link" %>
+					<% end %>
+					<% if params[:cat] && params[:subcat] %>
+						<span>&nbsp;>&nbsp;</span>
+						<%= link_to @sub_category_name, "/#{params[:cat]}/#{params[:subcat]}", class:"hierarchy-link" %>
+					<% end %>
+					<% if params[:cat] && params[:subcat] && params[:subsubcat] %>
+						<span>&nbsp;>&nbsp;</span>
+						<%= link_to @sub_sub_category_name, "/#{params[:cat]}/#{params[:subcat]}/#{params[:subsubcat]}", class:"hierarchy-link" %>
+					<% end %>
+				</span>
 			<% end %>
-		</table>
-	<% end %>
+			<div class="products-list col-md-12">
+				<% @products.each_with_index do |product, index| %>
+					<% if index % 3 == 0 %>
+					<div class="row">
+					<% end %>
+					<div class="col-md-4 text-center">
+						<div class="product-card">
+							<%= image_tag product.photo.url, height: '200', width: '200' %>
+							<div class="product-details">
+								<span class="name"><%= product.name %></span>
+								<span class="desc"><%= product.description %></span>
+								<span class="price"><%= number_to_currency product.price %></span>
+							</div>
+						</div>
+					</div>
+					<% if index % 3 == 2 %>
+					</div>
+					<% end %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>
