@@ -1,0 +1,112 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// honey pot theme from
+// https://color.adobe.com/Honey-Pot-color-theme-1490158/
+$blue: #105B63;
+$paleyellow: #FFFAD5;
+$gold: #FFD34E;
+$orange: #DB9E36;
+$redorange: #BD4932;
+$icon-width: 210px;
+
+// Navigation
+
+body {
+	background-color: #f6f6f6;
+}
+
+.navbar-default {
+	background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .12);
+}
+
+.navbar-fixed-top {
+    min-height: 70px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: $redorange;
+}
+
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+	background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-size: 16px;
+	font-weight: 400;
+	color: #222;
+}
+
+.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 70px;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;}
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.navbar-brand {
+	height: 70px;
+    width: $icon-width;
+    img {
+		display: inline-block;
+    }
+    span {
+    	display: inline-block;
+    	line-height: 45px;
+    	padding-left: 10px;
+    	font-weight: 300;
+    	text-transform: uppercase;
+    }
+}
+
+.dropdown-menu > li.sub-category a {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.dropdown-menu > li.sub-sub-category a {
+    font-weight: 400;
+    font-size: 13px;
+    text-align: right;
+}
+
+@media (min-width: 768px) {
+	.navbar-nav.nav {
+		margin-left: $icon-width * -1;
+	}
+}
+
+@media (min-width: 979px) {
+	ul.nav li.dropdown:hover > ul.dropdown-menu {
+		display: block;
+	}
+}
+
+// Main body
+
+.main {
+	padding-top: 70px;
+}

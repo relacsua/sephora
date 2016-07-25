@@ -1,0 +1,81 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		<a class="navbar-brand" href="/">
+			<%= image_tag "brand.png", width: '45', height: '45' %>
+			<span>Sephora Lite</span>
+		</a>
+    	</div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<!-- <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+						<li role="separator" class="divider"></li>
+					</ul>
+				</li> -->
+				<% if @menu.length > 0 %>
+					<% @menu.each do |cat_name, sub_categories| %>
+						<li class="dropdown">
+							<%= link_to cat_name, "/#{cat_name.downcase}", class: "dropdown-toggle", 'role': 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' %>
+							<ul class="dropdown-menu">
+								<% sub_categories.each do |sub_category| %>
+									<% sub_category.each do |name, sub_sub_categories| %>
+										<li class="sub-category">
+											<%= sanitize link_to name, "/#{cat_name.downcase}/#{name.downcase}" %>
+										</li>
+										<% sub_sub_categories.each do |sub_sub_category| %>
+										<li class="sub-sub-category">
+											<%= sanitize link_to sub_sub_category, "/#{cat_name.downcase}/#{name.downcase}/#{sub_sub_category.downcase}" %>
+										</li>
+										<% end %>
+									<% end %>
+								<% end %>
+							</ul>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="main container">
+	<p>
+		<% if params[:cat] %>
+			<%= link_to @category_name, "/#{params[:cat]}" %>
+		<% end %>
+		<% if params[:cat] && params[:subcat] %>
+			<span>&nbsp;>&nbsp;</span>
+			<%= link_to @sub_category_name, "/#{params[:cat]}/#{params[:subcat]}" %>
+		<% end %>
+		<% if params[:cat] && params[:subcat] && params[:subsubcat] %>
+			<span>&nbsp;>&nbsp;</span>
+			<%= link_to @sub_sub_category_name, "/#{params[:cat]}/#{params[:subcat]}/#{params[:subsubcat]}" %>
+		<% end %>
+	</p>
+	<% if @products %>
+		<p><%= pluralize(@products.count, "result") %> found</p>
+		<table>
+			<% @products.each do |product| %>
+				<tr>
+					<td><%= product.id %></td>
+					<td><%= image_tag product.photo.url, height: '135', width: '135' %></td>
+					<td><%= product.name %></td>
+					<td><%= product.description %></td>
+					<td>$<%= product.price %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

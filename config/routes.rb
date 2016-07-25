@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :categories do
-    resources :sub_categories, path: '/subcategories' do
-      resources :sub_sub_categories, path: '/subsubcategories' do
-        resources :products
+  root 'main#view'
+
+  scope '/admin' do
+    resources :categories do
+      resources :sub_categories, path: '/subcategories' do
+        resources :sub_sub_categories, path: '/subsubcategories' do
+          resources :products
+        end
       end
     end
   end
+
+  get '(/:cat(/:subcat(/:subsubcat)))' => 'main#view'
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
