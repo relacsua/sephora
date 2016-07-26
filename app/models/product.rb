@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
 
 	# Validations
 	validates :name, :description, :price, :photo, presence: true
-	validates :name, length: { in: 6..25 }
+	validates :name, length: { in: 3..25 }
 	validates :name, uniqueness: true
 	validates :price, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0 }
 	validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

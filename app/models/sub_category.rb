@@ -6,6 +6,6 @@ class SubCategory < ActiveRecord::Base
 
   	# Validations
 	validates :name, presence: true
-	validates :name, length: { in: 6..25 }
+	validates :name, length: { in: 3..25 }
 	validates :name, uniqueness: true
 end
